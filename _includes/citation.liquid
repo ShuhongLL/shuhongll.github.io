@@ -5,9 +5,18 @@
 If you found this useful, please cite this as:
 
 {% capture citation_quote -%}
-> {{ site.last_name }}, {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} ({{ page.date | date: "%b %Y" }}). {{ page.title }}. {% if site.title != 'blank' %}{{ site.title }}. {% endif %}{{ site.url }}.
+> {% assign authors = entry.author | split: " and " %}
+  {% for author in authors %}
+    {% assign last_name = author | split: ", " | first %}
+    {% assign first_name = author | split: ", " | last %}
+    {% if first_name contains "Shuhong" and last_name contains "Liu" %}
+      <u>{{ last_name }}, {{ first_name }}</u>{% if forloop.last == false %}, {% endif %}
+    {% else %}
+      {{ last_name }}, {{ first_name }}{% if forloop.last == false %}, {% endif %}
+    {% endif %}
+  {% endfor %}
 {%- endcapture %}
-{{ citation_quote | markdownify }}
+{{ citation_quote }}
 
 <p>or as a BibTeX entry:</p>
 
@@ -15,7 +24,18 @@ If you found this useful, please cite this as:
 ```bibtex
 @article{ {{- site.last_name | downcase }}{{ page.date | date: "%Y" }}{{ page.title | slugify }},
   title   = { {{- page.title -}} },
-  author  = { {{- site.last_name }}, {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif -%}},
+  author  = { {% assign authors = entry.author | split: " and " %}
+              {% for author in authors %}
+                {% assign last_name = author | split: ", " | first %}
+                {% assign first_name = author | split: ", " | last %}
+                {% if first_name contains "Shuhong" and last_name contains "Liu" %}
+                  {{ last_name }}, {{ first_name }}
+                {% else %}
+                  {{ last_name }}, {{ first_name }}
+                {% endif %}
+                {% if forloop.last == false %}, {% endif %}
+              {% endfor %}
+            },
   {%- if site.title != 'blank' %}journal = { {{- site.title -}} },{% endif %}
   year    = { {{- page.date | date: "%Y" -}} },
   month   = { {{- page.date | date: "%b" -}} },
