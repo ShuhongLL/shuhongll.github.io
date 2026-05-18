@@ -31,8 +31,8 @@ ninja.data = [{
           section: "News",},{id: "news-co-organizing-1st-3d-restoration-and-reconstruction-3drr-challenge-on-ntire-amp-amp-cvpr-2026-two-tracks-online-sparkles",
           title: 'Co-organizing 1st 3D Restoration and Reconstruction (3DRR) Challenge on NTIRE &amp;amp;amp; CVPR 2026...',
           description: "",
-          section: "News",},{id: "services-neurips-iclr-icml-cvpr-iccv-aaai-tmlr-pr",
-          title: 'NeurIPS, ICLR, ICML, CVPR, ICCV, AAAI, TMLR, PR',
+          section: "News",},{id: "services-neurips-iclr-icml-cvpr-iccv-aaai-tro-tmlr-pr",
+          title: 'NeurIPS, ICLR, ICML, CVPR, ICCV, AAAI, TRO, TMLR, PR',
           description: "",
           section: "Services",},{
         id: 'social-email',
