@@ -1,0 +1,31 @@
+/* Project-specific layout; typography and colors come from the main site. */
+.project-site-header { padding: 32px 56px 26px; }
+.project-home { color: var(--heading); font-family: var(--display-font); font-size: 29px; font-weight: 600; letter-spacing: -.02em; }
+.project-hero { margin-bottom: 44px; }
+.project-hero h1 { margin: 0 0 18px; color: var(--heading); font-family: var(--display-font); font-size: clamp(30px, 3.3vw, 39px); font-weight: 600; letter-spacing: -.025em; line-height: 1.2; text-wrap: pretty; }
+.project-hero .project-venue { margin-bottom: 16px; color: var(--accent); font-size: 17px; font-weight: 600; }
+.project-authors { font-size: 16px; line-height: 1.8; }
+.project-authors sup, .project-affiliations sup { margin-left: 2px; font-size: .7em; }
+.project-affiliations { color: var(--muted); font-size: 14px; }
+.project-links { margin-top: 20px; gap: 8px 0; }
+.project-unavailable { margin-left: 18px; color: var(--quiet); font-size: 13px; }
+.project-content p { margin: 0 0 16px; }
+.project-content > h2 { margin-top: 42px; }
+.project-content h3 { margin: 25px 0 12px; color: var(--heading); font-size: 19px; font-weight: 600; }
+.project-content ul { padding-left: 24px; margin: 0 0 24px; }
+.project-content li { margin: 9px 0; }
+.project-figure { margin: 26px 0; }
+.project-media { width: 100%; height: auto; margin-inline: auto; border: 1px solid var(--soft-line); border-radius: 5px; }
+.project-diagram { max-width: 600px; }
+.project-figure p { margin: 9px 0 0; color: var(--quiet); font-size: 13px; }
+.project-content mjx-container { display: inline-block !important; vertical-align: middle; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .2em; }
+.project-content pre { margin: 10px 0 0; padding: 20px; max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--muted); font-size: 13px; line-height: 1.7; }
+#copy-citation { padding: 5px 0; border: 0; background: transparent; color: var(--link); font-size: 14px; }
+#copy-citation:hover { text-decoration: underline; }
+@media (max-width: 1000px) { .project-site-header { padding-inline: 42px; } }
+@media (max-width: 680px) {
+  .project-site-header { padding: 26px 22px 22px; text-align: center; }
+  .project-hero { margin-bottom: 34px; }
+  .project-content > h2 { margin-top: 34px; }
+  .project-unavailable { flex-basis: 100%; margin-left: 0; }
+}
