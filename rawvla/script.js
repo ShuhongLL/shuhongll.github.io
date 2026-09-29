@@ -40,7 +40,10 @@ if (orbitBeam && orbitDatasetName && orbitStateNumber && orbitStateName) {
   } else {
     const orbitStart = performance.now();
     const animateOrbit = (now) => {
-      const elapsed = now - orbitStart;
+      // A requestAnimationFrame timestamp can be a few milliseconds earlier
+      // than a performance.now() value captured between frames. Clamp the
+      // first delta so the dataset index never becomes -1 and stops the loop.
+      const elapsed = Math.max(0, now - orbitStart);
       const cycleDuration = 18000;
       const cycleIndex = Math.floor(elapsed / cycleDuration);
       const cycleProgress = (elapsed % cycleDuration) / cycleDuration;
