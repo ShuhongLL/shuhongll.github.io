@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f1e7" />
+    <meta name="description" content="RawVLA — an embodied neural image signal processor for robust robotic manipulation across illumination." />
+    <meta property="og:title" content="RawVLA" />
+    <meta property="og:description" content="Embodied Neural Image Signal Processor for Robotic Manipulation" />
+    <meta property="og:image" content="https://shuhongll.github.io/RawVLA/assets/figures/figure1.png" />
+    <title>RawVLA — Embodied Neural ISP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="RawVLA home">RAW<span>VLA</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#isp-perturbations">ISP Effects</a>
+        <a href="#method">Method</a>
+        <a href="#benchmark">Benchmark</a>
+        <a href="#results">Results</a>
+        <a href="#demos">Demos</a>
+        <a href="#bibtex">BibTeX</a>
+      </nav>
+      <a class="nav-pill" href="assets/paper/rawvla-paper.pdf" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Embodied visual intelligence</p>
+          <h1 class="rawvla-title">RawVLA</h1>
+          <h2>Embodied Neural Image Signal Processor<br />for Robotic Manipulation</h2>
+          <div class="hero-authors">
+            <p class="author-list"><a href="https://shuhongll.github.io/" target="_blank" rel="noreferrer">Shuhong Liu</a><span>·</span><span class="author-unlinked">Heng Zhou</span><span>·</span><span class="author-unlinked">Lingfeng Qian</span><span>·</span><span class="author-unlinked">Yuhao Fang</span><span>·</span><span class="author-unlinked">Xianbao Hou</span><span>·</span><a href="https://scholar.google.com/citations?user=KHg04fkAAAAJ" target="_blank" rel="noreferrer">Qianyu Zhou</a><span>·</span><a href="https://sites.google.com/view/linguedu/home" target="_blank" rel="noreferrer">Lin Gu</a><span>·</span><a href="https://scholar.google.com/citations?user=0vckuD8AAAAJ" target="_blank" rel="noreferrer">Wei Sui</a><span>·</span><a href="https://marsyang.site/" target="_blank" rel="noreferrer">Jianfei Yang</a><span>·</span><a href="https://cuiziteng.github.io/" target="_blank" rel="noreferrer">Ziteng Cui</a></p>
+            <p class="affiliations">UTokyo · D-Robotics · NTU · TohokuU · HKUSTGZ</p>
+          </div>
+          <p class="hero-deck">An adaptive visual front-end that restores reliable perception for vision-language-action policies as real-world illumination shifts.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="assets/paper/rawvla-paper.pdf" target="_blank" rel="noreferrer">Read the paper <span>↗</span></a>
+            <a class="button ghost" href="https://huggingface.co/datasets/ToferFish/RawVLA-Bench" target="_blank" rel="noreferrer">RawVLA-Bench <span>↗</span></a>
+            <span class="button ghost" aria-label="Code coming soon">Code · Coming soon</span>
+          </div>
+        </div>
+
+        <aside class="hero-orbit" aria-label="RawVLA success rates for PI-0 and PI-0.5 on LIBERO and RoboTwin 2.0 across five illumination levels">
+          <div class="orbit-ring ring-a"></div>
+          <div class="orbit-ring ring-b"></div>
+          <div class="orbit-core">
+            <span id="orbit-dataset-name">PI-0 · LIBERO</span>
+            <strong><b id="orbit-state-number">40.70</b><sup>%</sup></strong>
+            <small id="orbit-state-name">Extreme Low</small>
+            <em>SUCCESS RATE</em>
+          </div>
+          <div class="orbit-label label-extreme-low is-active" data-light-state="0"><i></i> extreme low</div>
+          <div class="orbit-label label-low" data-light-state="1"><i></i> low</div>
+          <div class="orbit-label label-normal" data-light-state="2"><i></i> normal</div>
+          <div class="orbit-label label-over" data-light-state="3"><i></i> over</div>
+          <div class="orbit-label label-extreme-over" data-light-state="4"><i></i> extreme over</div>
+          <div class="scan-beam" aria-hidden="true"></div>
+        </aside>
+
+      </section>
+
+      <section class="ticker" aria-label="RawVLA research keywords">
+        <div class="ticker-track">
+          <span>RAW Imaging</span><i></i><span>Burst Denoising</span><i></i><span>White Balance</span><i></i><span>Color Correction</span><i></i><span>Tone Curve</span><i></i><span>Embodied ISP</span><i></i><span>Vision-Language-Action</span><i></i><span>Illumination Robustness</span><i></i><span>RawVLA-Bench</span><i></i><span>Real-World Manipulation</span><i></i>
+          <span aria-hidden="true">RAW Imaging</span><i aria-hidden="true"></i><span aria-hidden="true">Burst Denoising</span><i aria-hidden="true"></i><span aria-hidden="true">White Balance</span><i aria-hidden="true"></i><span aria-hidden="true">Color Correction</span><i aria-hidden="true"></i><span aria-hidden="true">Tone Curve</span><i aria-hidden="true"></i><span aria-hidden="true">Embodied ISP</span><i aria-hidden="true"></i><span aria-hidden="true">Vision-Language-Action</span><i aria-hidden="true"></i><span aria-hidden="true">Illumination Robustness</span><i aria-hidden="true"></i><span aria-hidden="true">RawVLA-Bench</span><i aria-hidden="true"></i><span aria-hidden="true">Real-World Manipulation</span><i aria-hidden="true"></i>
+        </div>
+      </section>
+
+      <section class="overview shell section" id="overview">
+        <div class="section-heading">
+          <p class="section-index">01 / Overview</p>
+          <h2>Robots should not lose<br />their skills when the light changes.</h2>
+          <p>RawVLA places an embodied, adaptive neural ISP before a frozen VLA policy, translating RAW observations into policy-ready images without retraining the policy itself.</p>
+        </div>
+        <figure class="paper-figure reveal">
+          <div class="figure-glow"></div>
+          <img src="assets/figures/figure1.png" alt="RawVLA overview and qualitative results across illumination" />
+          <figcaption><span>Figure 01</span> RawVLA adapts the imaging pipeline to support robust robotic manipulation across diverse illumination environments.</figcaption>
+        </figure>
+      </section>
+
+      <section class="isp-section section" id="isp-perturbations">
+        <div class="shell">
+          <div class="section-heading isp-heading">
+            <p class="section-index">02 / ISP Perturbations</p>
+            <h2>ISP choices substantially affect<br />VLA performance.</h2>
+            <p>A controlled study on RAW images in simulation examines how conventional ISP components, including exposure control, denoising, white balance, color correction, tone mapping and quantization, affect task success across LIBERO and RoboTwin 2.0.</p>
+          </div>
+          <div class="isp-study-card reveal">
+            <div class="isp-figure">
+              <img loading="lazy" src="assets/figures/isp-perturbation.png" alt="Six-axis ISP sensitivity results for exposure, tonal response, sensor noise, white point, color relation and bit depth on LIBERO and RoboTwin 2.0" />
+            </div>
+            <div class="isp-study-foot">
+              <p><span>LIBERO</span> Six policy checkpoints expose large differences in tolerance, with exposure producing the sharpest collapse and world-action models showing narrower stable ranges.</p>
+              <p><span>RoboTwin 2.0</span> Qwen3-OFT and FastWAM remain sensitive at severe settings even after task-specific fine-tuning and visual domain randomization.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-section shell section" id="method">
+        <div class="section-heading">
+          <p class="section-index">03 / Method</p>
+          <h2>An embodied ISP that reasons<br />with the robot.</h2>
+          <p>A streaming RAW burst is summarized into luminance and chroma descriptors. Recurrent states decode structured camera controls before the frozen VLA policy predicts actions.</p>
+        </div>
+        <div class="method-frame reveal">
+          <div class="method-frame-top"><span>Embodied imaging loop</span><div><i></i> 168 FPS</div></div>
+          <img src="assets/figures/figure3.png" alt="RawVLA architecture with RAW burst encoder, recurrent states, structured ISP controls and frozen VLA policy" />
+          <div class="method-notes">
+            <p><span>01</span><strong>Observe</strong> A causal linear RAW burst preserves information conventional pipelines discard.</p>
+            <p><span>02</span><strong>Adapt</strong> Factorized recurrent states track luminance and chroma over time.</p>
+            <p><span>03</span><strong>Embodied ISP</strong> Optimized by the downstream VLA action loss to generate images that favor accurate action prediction.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="benchmark-section section" id="benchmark">
+        <div class="shell">
+          <div class="section-heading benchmark-section-heading">
+            <p class="section-index">04 / RawVLA-Bench</p>
+            <h2>Synthetic RAW sensing<br />across changing illumination.</h2>
+            <p>RawVLA-Bench synthesizes sensor-space RAW observations across five illumination domains while preserving multi-view camera streams for controlled, reproducible evaluation.</p>
+          </div>
+
+          <div class="benchmark-facts reveal" aria-label="RawVLA-Bench statistics">
+            <div><strong>5</strong><span>illumination domains</span></div>
+            <div><strong>13,250</strong><span>evaluation rollouts</span></div>
+            <div><strong>2,403</strong><span>paired training trajectories</span></div>
+            <div><strong>408,075</strong><span>multi-view frames</span></div>
+          </div>
+
+          <div class="benchmark-atlas">
+            <figure class="benchmark-figure reveal">
+              <div class="benchmark-figure-head"><div><span>RawVLA-Bench / 01</span><h3>LIBERO</h3></div><p>40 tasks · 10,000 paired evaluation rollouts</p></div>
+              <a class="benchmark-preview" href="assets/figures/rawvla-bench-libero.png" data-figure-title="LIBERO · RawVLA-Bench" aria-label="Open the full-resolution LIBERO RawVLA-Bench figure">
+                <img loading="lazy" src="assets/figures/rawvla-bench-libero.png" alt="LIBERO RawVLA-Bench visualization across five illumination regimes, with Original, RAW and Default ISP observations for Agent and Wrist views" />
+                <span class="benchmark-expand" aria-hidden="true">View full figure <b>↗</b></span>
+              </a>
+              <figcaption><span>LIBERO · Benchmark Visualization</span> Five matched illumination regimes show the original RGB reference, sensor-space RAW observation and fixed Default ISP output for Agent and Wrist views.</figcaption>
+            </figure>
+
+            <figure class="benchmark-figure reveal">
+              <div class="benchmark-figure-head"><div><span>RawVLA-Bench / 02</span><h3>RoboTwin 2.0</h3></div><p>13 tasks · 3,250 paired evaluation rollouts</p></div>
+              <a class="benchmark-preview" href="assets/figures/rawvla-bench-robotwin.png" data-figure-title="RoboTwin 2.0 · RawVLA-Bench" aria-label="Open the full-resolution RoboTwin RawVLA-Bench figure">
+                <img loading="lazy" src="assets/figures/rawvla-bench-robotwin.png" alt="RoboTwin 2.0 RawVLA-Bench visualization across five illumination regimes, with Original, RAW and Default ISP observations for Agent and Wrist views" />
+                <span class="benchmark-expand" aria-hidden="true">View full figure <b>↗</b></span>
+              </a>
+              <figcaption><span>RoboTwin 2.0 · Benchmark Visualization</span> The same five-regime protocol visualizes paired Original, RAW and Default ISP observations in a multi-camera dual-arm environment.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="radar-section section" id="results">
+        <div class="shell">
+          <div class="section-heading radar-heading">
+            <p class="section-index">05 / Results</p>
+            <h2>Results across simulation<br />and the physical world.</h2>
+            <p>Compare every ISP baseline across five illumination regimes, then inspect task-level success rates from the real-world evaluation.</p>
+          </div>
+          <div class="radar-panel reveal">
+            <div class="radar-stage">
+              <div class="radar-kicker"><span></span> Interactive Result 05-A</div>
+              <svg id="radar-chart" viewBox="0 0 640 640" role="img" aria-labelledby="radar-title radar-desc">
+                <title id="radar-title">Simulation success rates across illumination settings</title>
+                <desc id="radar-desc">Interactive comparison of RawVLA and all ISP baselines on LIBERO and RoboTwin 2.0.</desc>
+              </svg>
+              <div class="radar-tooltip" id="radar-tooltip" role="status"></div>
+            </div>
+            <aside class="radar-controls">
+              <p class="control-label">Benchmark</p>
+              <div class="segmented" role="group" aria-label="Choose benchmark">
+                <button class="benchmark-button is-active" type="button" data-benchmark="libero">LIBERO</button>
+                <button class="benchmark-button" type="button" data-benchmark="robotwin">RoboTwin 2.0</button>
+              </div>
+              <p class="control-label">Methods</p>
+              <div class="method-list" role="group" aria-label="Show or hide methods">
+                <button type="button" class="method-toggle is-active" data-method="RawVLA"><i style="--method-color:#1498c8"></i><span><strong>RawVLA</strong><small>Ours</small></span><b>on</b></button>
+                <button type="button" class="method-toggle is-active" data-method="Default ISP"><i style="--method-color:#6e86a8"></i><span><strong>Default ISP</strong><small>Camera pipeline</small></span><b>on</b></button>
+                <button type="button" class="method-toggle is-active" data-method="DarkISP"><i style="--method-color:#c18fa3"></i><span><strong>DarkISP</strong><small>Neural ISP</small></span><b>on</b></button>
+                <button type="button" class="method-toggle is-active" data-method="RAM"><i style="--method-color:#79a77d"></i><span><strong>RAM</strong><small>Neural ISP</small></span><b>on</b></button>
+                <button type="button" class="method-toggle is-active" data-method="RAWAdapter"><i style="--method-color:#9a82bd"></i><span><strong>RAWAdapter</strong><small>Neural ISP</small></span><b>on</b></button>
+                <button type="button" class="method-toggle is-active" data-method="RAWild"><i style="--method-color:#59abc3"></i><span><strong>RAWild</strong><small>Neural ISP</small></span><b>on</b></button>
+              </div>
+              <div class="radar-insight">
+                <span>Overall success rate</span>
+                <strong id="metric-value">65.18%</strong>
+                <p id="metric-note">RawVLA on LIBERO, averaged across PI-0, PI-0.5 and Qwen3-OFT.</p>
+              </div>
+            </aside>
+          </div>
+          <div class="realworld-results reveal" aria-labelledby="realworld-results-title">
+            <header class="realworld-results-head">
+              <div>
+                <p>Result 05-B · Physical Robot</p>
+                <h3 id="realworld-results-title">Real-World Evaluation</h3>
+              </div>
+              <div class="realworld-result-highlights" aria-label="RawVLA average success rates">
+                <span><strong>75.0%</strong> Normal Light</span>
+                <span><strong>66.5%</strong> Low Light</span>
+              </div>
+            </header>
+            <div class="realworld-result-grid">
+              <section class="result-sheet">
+                <div class="result-sheet-title"><span>Lighting / 01</span><h4>Normal Light</h4></div>
+                <div class="result-table-wrap">
+                  <table class="result-table">
+                    <thead><tr><th scope="col">Task</th><th scope="col">Default ISP</th><th scope="col">DarkISP</th><th scope="col" class="ours-column">RawVLA</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Pick &amp; Place</th><td>96</td><td>66</td><td class="ours-column">96</td></tr>
+                      <tr><th scope="row">Close Drawer</th><td>92</td><td>52</td><td class="ours-column">94</td></tr>
+                      <tr><th scope="row">Pick Flowers</th><td>72</td><td>44</td><td class="ours-column">66</td></tr>
+                      <tr><th scope="row">Stack &amp; Cover</th><td>46</td><td>38</td><td class="ours-column">44</td></tr>
+                    </tbody>
+                    <tfoot><tr><th scope="row">Average</th><td>76.50</td><td>50.00</td><td class="ours-column">75.00</td></tr></tfoot>
+                  </table>
+                </div>
+              </section>
+              <section class="result-sheet lowlight-sheet">
+                <div class="result-sheet-title"><span>Lighting / 02</span><h4>Low Light</h4></div>
+                <div class="result-table-wrap">
+                  <table class="result-table">
+                    <thead><tr><th scope="col">Task</th><th scope="col">Default ISP</th><th scope="col">DarkISP</th><th scope="col" class="ours-column">RawVLA</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Pick &amp; Place</th><td>0</td><td>22</td><td class="ours-column">92</td></tr>
+                      <tr><th scope="row">Close Drawer</th><td>0</td><td>12</td><td class="ours-column">88</td></tr>
+                      <tr><th scope="row">Pick Flowers</th><td>0</td><td>10</td><td class="ours-column">56</td></tr>
+                      <tr><th scope="row">Stack &amp; Cover</th><td>0</td><td>0</td><td class="ours-column">30</td></tr>
+                    </tbody>
+                    <tfoot><tr><th scope="row">Average</th><td>0.00</td><td>11.00</td><td class="ours-column">66.50</td></tr></tfoot>
+                  </table>
+                </div>
+              </section>
+            </div>
+            <p class="realworld-result-note">Success rate (%) · PI-0.5 · 50 trials per task</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="experiments section" id="demos">
+        <div class="shell">
+          <div class="section-heading experiments-heading">
+            <p class="section-index">06 / Demos</p>
+            <h2>From simulation<br />to the physical world.</h2>
+            <p>Each benchmark uses independent rollout videos.</p>
+          </div>
+          <div class="experiment-list">
+            <article class="benchmark-block reveal" data-benchmark-gallery="libero">
+              <div class="benchmark-header"><div><div class="experiment-number">01</div><p class="experiment-type">Simulation · Qwen3-OFT</p><h3>LIBERO</h3></div><div class="benchmark-summary"><p>Four independent method rollouts. Every player shows synchronized Agent and Wrist views from its rendered rollout.</p><p class="benchmark-task" data-gallery-task>Task: Pick up the butter and place it in the basket</p><div class="stat-row"><span><strong>65.18%</strong> overall success rate</span><span data-gallery-speed><strong>2×</strong> speed</span></div></div></div>
+              <div class="benchmark-tabs" role="group" aria-label="LIBERO illumination"><button class="is-active" type="button" data-condition="low">Low Light</button><button type="button" data-condition="normal">Normal</button><button type="button" data-condition="over">Overexposure</button></div>
+              <div class="method-video-grid">
+                <article class="method-video-card" data-method="defaultisp"><div class="method-card-head"><div><small>Camera pipeline</small><h4>Default ISP</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/libero/low/defaultisp.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge fail">× Fail</strong></div></article>
+                <article class="method-video-card" data-method="ram"><div class="method-card-head"><div><small>Neural ISP</small><h4>RAM</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/libero/low/ram.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge fail">× Fail</strong></div></article>
+                <article class="method-video-card" data-method="rawild"><div class="method-card-head"><div><small>Neural ISP</small><h4>RAWild</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/libero/low/rawild.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge fail">× Fail</strong></div></article>
+                <article class="method-video-card ours" data-method="rawvla"><div class="method-card-head"><div><small>Ours</small><h4>RawVLA</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/libero/low/rawvla.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge success">✓ Success</strong></div></article>
+              </div>
+            </article>
+
+            <article class="benchmark-block reveal" data-benchmark-gallery="robotwin">
+              <div class="benchmark-header"><div><div class="experiment-number">02</div><p class="experiment-type">Simulation · π₀.₅</p><h3>RoboTwin 2.0</h3></div><div class="benchmark-summary"><p>Four independent dual-arm rollouts, each preserving the Agent and Wrist views from the source videos.</p><p class="benchmark-task" data-gallery-task>Task: Lift the pot</p><div class="stat-row"><span><strong>54.98%</strong> overall success rate</span><span data-gallery-speed><strong>2×</strong> speed</span></div></div></div>
+              <div class="benchmark-tabs" role="group" aria-label="RoboTwin illumination"><button class="is-active" type="button" data-condition="low">Low Light</button><button type="button" data-condition="normal">Normal</button><button type="button" data-condition="over">Overexposure</button></div>
+              <div class="method-video-grid">
+                <article class="method-video-card" data-method="defaultisp"><div class="method-card-head"><div><small>Camera pipeline</small><h4>Default ISP</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/robotwin/low/defaultisp.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge fail">× Fail</strong></div></article>
+                <article class="method-video-card" data-method="darkisp"><div class="method-card-head"><div><small>Neural ISP</small><h4>DarkISP</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/robotwin/low/darkisp.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge fail">× Fail</strong></div></article>
+                <article class="method-video-card" data-method="raw_adapter"><div class="method-card-head"><div><small>Neural ISP</small><h4>RAW Adapter</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/robotwin/low/raw_adapter.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge fail">× Fail</strong></div></article>
+                <article class="method-video-card ours" data-method="rawvla"><div class="method-card-head"><div><small>Ours</small><h4>RawVLA</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/robotwin/low/rawvla.mp4"></video><div class="view-labels"><span>Agent View</span><span>Wrist View</span></div></div><div class="method-card-foot"><span>Rendered Rollout</span><strong class="result-badge success">✓ Success</strong></div></article>
+              </div>
+            </article>
+
+            <article class="benchmark-block reveal realworld-block" data-realworld-gallery>
+              <div class="benchmark-header"><div><div class="experiment-number">03</div><p class="experiment-type">Physical robot · 1× speed</p><h3>Real World</h3></div><div class="benchmark-summary"><p>Every rollout combines a third-person iPhone view, a tabletop Agent view, and two Wrist views. Normal light is separated by task; low light is separated by method; disturbance recovery compares original and enhanced iPhone views.</p><div class="stat-row"><span><strong>66.50%</strong> low-light success rate</span><span><strong>4</strong> tasks</span></div></div></div>
+              <div class="realworld-panel" data-realworld-panel="normal">
+                <div class="realworld-light-heading"><span>Lighting / 01</span><h4>Normal Light</h4><i aria-hidden="true"></i></div>
+                <div class="method-video-grid realworld-normal-grid">
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Ours</small><h4>Close Drawer</h4></div><span class="condition-chip">Normal Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/normal/drug_the_drawer.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Success</strong></div></article>
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Ours</small><h4>Pick &amp; Place</h4></div><span class="condition-chip">Normal Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/normal/pick_and_place.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Success</strong></div></article>
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Ours</small><h4>Pick Flowers</h4></div><span class="condition-chip">Normal Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/normal/pick_flowers.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Success</strong></div></article>
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Ours</small><h4>Stack &amp; Cover</h4></div><span class="condition-chip">Normal Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/normal/stack_and_cover.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Success</strong></div></article>
+                </div>
+              </div>
+              <div class="realworld-panel" data-realworld-panel="lowlight">
+                <div class="realworld-light-heading"><span>Lighting / 02</span><h4>Low Light</h4><i aria-hidden="true"></i></div>
+                <div class="task-tabs" role="group" aria-label="Low-light task"><button class="is-active" type="button" data-realworld-task="drug_the_drawer">Close Drawer</button><button type="button" data-realworld-task="pick_and_place">Pick &amp; Place</button><button type="button" data-realworld-task="pick_flowers">Pick Flowers</button><button type="button" data-realworld-task="stack_and_cover">Stack &amp; Cover</button></div>
+                <div class="method-video-grid realworld-low-grid">
+                  <article class="method-video-card" data-realworld-method="default"><div class="method-card-head"><div><small>Camera pipeline</small><h4>Default ISP</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/lowlight/drug_the_drawer/default.mp4"></video><div class="enhancement-note">Visualization Enhanced</div><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge fail">× Fail</strong></div></article>
+                  <article class="method-video-card" data-realworld-method="darkisp"><div class="method-card-head"><div><small>Neural ISP</small><h4>DarkISP</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/lowlight/drug_the_drawer/darkisp.mp4"></video><div class="enhancement-note">Visualization Enhanced</div><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge fail">× Fail</strong></div></article>
+                  <article class="method-video-card ours" data-realworld-method="rawvla"><div class="method-card-head"><div><small>Ours</small><h4>RawVLA</h4></div><span class="condition-chip">Low Light</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/lowlight/drug_the_drawer/rawvla.mp4"></video><div class="enhancement-note">Visualization Enhanced</div><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">iPhone</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Success</strong></div></article>
+                </div>
+              </div>
+              <div class="realworld-panel realworld-disturbance-panel" data-realworld-panel="disturbance">
+                <div class="realworld-light-heading"><span>Lighting / 03</span><h4>Low-Light Disturbance Recovery</h4><i aria-hidden="true"></i></div>
+                <p class="realworld-panel-note">Objects are repositioned during execution; RawVLA continues manipulation from the disturbed state.<br><span>Original shows the direct iPhone recording; Enhanced is post-processed only for demo visualization.</span></p>
+                <div class="method-video-grid realworld-disturbance-grid">
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Recovery</small><h4>Pick &amp; Place</h4></div><span class="condition-chip">Original</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/disturbance/pick_and_place/iphone_original.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">Original</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Recovered</strong></div></article>
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Recovery</small><h4>Pick &amp; Place</h4></div><span class="condition-chip">Enhanced</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/disturbance/pick_and_place/iphone_enhanced.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">Enhanced</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Recovered</strong></div></article>
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Recovery</small><h4>Pick Flowers</h4></div><span class="condition-chip">Original</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/disturbance/pick_flowers/iphone_original.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">Original</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Recovered</strong></div></article>
+                  <article class="method-video-card ours"><div class="method-card-head"><div><small>RawVLA · Recovery</small><h4>Pick Flowers</h4></div><span class="condition-chip">Enhanced</span></div><div class="raw-video-frame"><video controls muted playsinline preload="metadata" src="assets/videos/benchmarks/realworld/disturbance/pick_flowers/iphone_enhanced.mp4"></video><div class="realworld-view-labels" aria-hidden="true"><span class="label-iphone">Enhanced</span><span class="label-head">Agent View</span><span class="label-left">Left Wrist</span><span class="label-right">Right Wrist</span></div></div><div class="method-card-foot"><span>1× speed</span><strong class="result-badge success">✓ Recovered</strong></div></article>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing paper-section section" id="paper">
+        <div class="shell paper-grid">
+          <a class="paper-object reveal" href="assets/paper/rawvla-paper.pdf" target="_blank" rel="noreferrer" aria-label="Open the RawVLA paper PDF">
+            <img src="assets/paper/rawvla-paper-p1.jpg" alt="First page of the RawVLA paper" loading="lazy" width="1000" height="1294" />
+            <span class="paper-shadow" aria-hidden="true"></span>
+          </a>
+          <div class="paper-side reveal">
+            <p class="section-index">07 / Paper</p>
+            <h2>RawVLA: Embodied Neural Image Signal Processor for Robotic Manipulation</h2>
+            <div class="paper-links" aria-label="Paper resources">
+              <a href="assets/paper/rawvla-paper.pdf" target="_blank" rel="noreferrer"><span>Paper</span><small>PDF · 50 pages</small><b aria-hidden="true">↗</b></a>
+              <a href="https://huggingface.co/datasets/ToferFish/RawVLA-Bench" target="_blank" rel="noreferrer"><span>RawVLA-Bench</span><small>Hugging Face dataset</small><b aria-hidden="true">↗</b></a>
+              <span class="paper-link-disabled"><span>Code</span><small>Coming soon</small><b aria-hidden="true">—</b></span>
+            </div>
+            <div class="citation-card">
+              <div class="citation-top"><span>Citation</span><button id="copy-citation" type="button">Copy BibTeX</button></div>
+              <pre id="bibtex">@inproceedings{liu2027rawvla,
+  title={RawVLA: Embodied Neural Image Signal Processor for Robotic Manipulation},
+  author={Liu, Shuhong and Zhou, Heng and Qian, Lingfeng and Fang, Yuhao and Hou, Xianbao and Zhou, Qianyu and Gu, Lin and Sui, Wei and Yang, Jianfei and Cui, Ziteng},
+  year={2026}
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="figure-lightbox" id="figure-lightbox" aria-labelledby="figure-lightbox-title">
+      <div class="figure-lightbox-bar">
+        <p id="figure-lightbox-title">RawVLA-Bench</p>
+        <button type="button" data-lightbox-close aria-label="Close full figure">Close <span aria-hidden="true">×</span></button>
+      </div>
+      <img src="" alt="" />
+    </dialog>
+
+    <footer class="site-footer shell">
+      <a class="wordmark" href="#top">RAW<span>VLA</span></a>
+      <p>Embodied Neural Image Signal Processor for Robotic Manipulation</p>
+      <p>© 2026 RawVLA</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
