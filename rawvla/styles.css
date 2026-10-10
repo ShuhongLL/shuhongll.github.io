@@ -306,3 +306,22 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
+
+/* Full introduction video, loaded only when the visitor presses play. */
+.project-video { padding-top: clamp(36px, 5vw, 64px); scroll-margin-top: 110px; }
+.project-video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--ink); box-shadow: var(--shadow); }
+.project-video-cover { display: block; position: absolute; inset: 0; color: white; text-decoration: none; }
+.project-video-cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(6, 25, 39, .8)); pointer-events: none; }
+.project-video-cover img { width: 100%; height: 100%; object-fit: cover; }
+.project-video-play { position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 76px; height: 76px; padding-left: 4px; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; background: rgba(15,54,82,.9); color: white; font-size: 28px; box-shadow: 0 8px 32px rgba(0,0,0,.2); }
+.project-video-cover:hover .project-video-play { background: var(--blue-deep); }
+.project-video-cover:focus-visible { outline: 3px solid white; outline-offset: -6px; border-radius: inherit; }
+.project-video-caption { position: absolute; z-index: 1; bottom: 24px; left: 28px; right: 28px; font-size: clamp(16px, 2vw, 22px); font-weight: 600; }
+.project-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.project-video-fallback { margin: 14px 0 0; text-align: right; color: var(--ink-soft); font-size: 14px; }
+.project-video-fallback a { text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .project-video-frame { border-radius: 12px; }
+  .project-video-play { width: 56px; height: 56px; font-size: 22px; }
+  .project-video-caption { bottom: 14px; left: 16px; right: 16px; }
+}
