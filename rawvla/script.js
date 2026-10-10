@@ -294,3 +294,17 @@ if (figureLightbox) {
   });
 }
 drawRadar();
+
+const introductionPlayer = document.querySelector('[data-youtube-player]');
+introductionPlayer?.querySelector('.project-video-cover')?.addEventListener('click', (event) => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  const player = document.createElement('iframe');
+  player.title = 'RawVLA introduction video';
+  player.src = 'https://www.youtube.com/embed/ccwYdrZy7Rg?autoplay=1&playsinline=1&rel=0';
+  player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  player.allowFullscreen = true;
+  player.referrerPolicy = 'strict-origin-when-cross-origin';
+  introductionPlayer.replaceChildren(player);
+  player.focus();
+});
